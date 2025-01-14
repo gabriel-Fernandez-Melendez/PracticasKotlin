@@ -5,11 +5,14 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontStyle
@@ -58,10 +61,39 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     )
 }
 
+@Composable
+//añadimos un  argumento mas a la funcion para que salga el segundo texto
+fun PrimeraFuncion(mensaje: String, from: String, modifier: Modifier = Modifier) {
+    //este modifier en columna indica que ocupe toda la pantalla del movil
+    Column (modifier.fillMaxSize().padding(8.dp), verticalArrangement = Arrangement.Center){
+        Text(
+            text = mensaje,
+            //cambiamos el alto para que no moleste la camara
+            fontSize = 60.sp,
+            lineHeight = 80.sp,
+            modifier = modifier,
+
+        )
+        //hacemos otro texto para pasarlo como parametro
+        Text(
+            text = from,
+            fontSize = 20.sp,
+            modifier = modifier.align(Alignment.End),
+            textAlign = TextAlign.Right
+
+            )
+    }
+
+}
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
     MiAplicacionTheme {
-        Greeting("Android")
+        //Greeting("Android")
+        //ponemos la funcipon que hemos creado (primera funcion)
+        PrimeraFuncion("felicidades gabriel", "from mario")
     }
+
+
 }
