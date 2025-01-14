@@ -4,10 +4,15 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -15,6 +20,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
@@ -65,7 +72,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 //añadimos un  argumento mas a la funcion para que salga el segundo texto
 fun PrimeraFuncion(mensaje: String, from: String, modifier: Modifier = Modifier) {
     //este modifier en columna indica que ocupe toda la pantalla del movil
-    Column (modifier.fillMaxSize().padding(8.dp), verticalArrangement = Arrangement.Center){
+    Column(
+        modifier
+            .fillMaxSize()
+            .padding(8.dp), verticalArrangement = Arrangement.Center
+    ) {
+
         Text(
             text = mensaje,
             //cambiamos el alto para que no moleste la camara
@@ -73,7 +85,7 @@ fun PrimeraFuncion(mensaje: String, from: String, modifier: Modifier = Modifier)
             lineHeight = 80.sp,
             modifier = modifier,
 
-        )
+            )
         //hacemos otro texto para pasarlo como parametro
         Text(
             text = from,
@@ -81,18 +93,123 @@ fun PrimeraFuncion(mensaje: String, from: String, modifier: Modifier = Modifier)
             modifier = modifier.align(Alignment.End),
             textAlign = TextAlign.Right
 
-            )
+        )
     }
 
 }
-//
+
+//hacemos una  nueva funcion de composicion
+@Composable
+fun FuncionImagen(mensaje: String, from: String, modifier: Modifier = Modifier) {
+    Box {
+        Image(
+            painter = painterResource(id = R.drawable.androidparty),
+            contentDescription = "locura",
+            contentScale = ContentScale.Crop,
+            alpha = 0.5f
+        )
+        //hacemos una llamada a la funcion anterior y se superpone
+        PrimeraFuncion("felicidades gabriel", "from mario")
+    }
+
+
+}
+
+//creamos una funcion para los cuadrados
+@Composable
+fun CuadrosLayout(modifier: Modifier = Modifier) {
+    //amadimos el modificador a la columna para que ocupetodo
+    //importante :  el peso weith es el encargado de cuanto ocupa ese layout en la pantalla
+    Column(Modifier.fillMaxSize()) {
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+        ) {
+            Box(
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(
+                        Color(0xFFEADDFF)
+                    )
+                    .padding(16.dp),
+                contentAlignment = Alignment.Center
+
+            ) {
+                Column {
+                    Text(
+                        text = "Text composable",
+                        fontWeight = FontWeight.Bold,
+                        modifier = modifier.padding(bottom = 16.dp)
+                    )
+                    Text(
+                        text = "cmas texto de como  funcona esto",
+                        textAlign = TextAlign.Justify,
+                        modifier = modifier
+
+                    )
+                }
+
+            }
+            Box(
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(
+                        Color(0xFFD0BCFF)
+                    )
+                    .padding(16.dp)
+            ) {
+
+            }
+        }
+        Row(
+            Modifier
+                .fillMaxWidth()
+                .weight(1f)
+        ) {
+            Box(
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(
+                        Color(0xFFB69DF8)
+                    )
+                    .padding(16.dp)
+            ) {
+
+            }
+            Box(
+                Modifier
+                    .weight(1f)
+                    .fillMaxHeight()
+                    .background(
+                        Color(0xFFF6EDFF)
+                    )
+                    .padding(16.dp)
+            ) {
+
+            }
+        }
+    }
+}
+
+fun TextoCaja(titulo : String ,descripcion : String, modifier: Modifier= Modifier){
+
+}
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
     MiAplicacionTheme {
         //Greeting("Android")
         //ponemos la funcipon que hemos creado (primera funcion)
-        PrimeraFuncion("felicidades gabriel", "from mario")
+        //PrimeraFuncion("felicidades gabriel", "from mario")
+        //metemos la funcion de la imagen
+        //FuncionImagen("felicidades gabriel", "from mario")
+        //metemos la funcion de los cuadros
+        CuadrosLayout()
     }
 
 
