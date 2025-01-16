@@ -1,10 +1,12 @@
 package com.example.miaplicacion.componente
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Card
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
@@ -21,6 +23,15 @@ fun Tarjeta(modifier: Modifier=Modifier){
     Card (Modifier.fillMaxWidth().padding(20.dp)) {
         Row {
            Image(painter = painterResource(id = R.drawable.principado_de_asturias), contentDescription = "sisi")
+            Column {
+                    Text(
+                        text = "Principado de Asturias"
+                    )
+
+                Text(
+                    text = "Oviedo"
+                )
+            }
     }
     }
 }
