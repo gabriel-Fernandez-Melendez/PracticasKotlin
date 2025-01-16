@@ -10,8 +10,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.miaplicacion.CuadrosLayout
 import com.example.miaplicacion.R
 import com.example.miaplicacion.ui.theme.MiAplicacionTheme
@@ -19,26 +21,39 @@ import com.example.miaplicacion.ui.theme.MiAplicacionTheme
 //card es uno de los formatos que nos da jetpack compose
 //alt+enter exporta rapido los paquetes necesarios
 @Composable
-fun Tarjeta(modifier: Modifier=Modifier){
-    Card (Modifier.fillMaxWidth().padding(20.dp)) {
+fun Tarjeta(modifier: Modifier = Modifier) {
+    Card(
+        Modifier
+            .fillMaxWidth()
+            .padding(20.dp)) {
         Row {
-           Image(painter = painterResource(id = R.drawable.principado_de_asturias), contentDescription = "sisi")// la descripcion de a imagen es indispensable
+            Image(
+                painter = painterResource(id = R.drawable.principado_de_asturias),
+                contentDescription = "sisi"
+            )// la descripcion de a imagen es indispensable
             Column {
-                    Text(
-                        text = "Principado de Asturias"
-                    )
+                Text(
+                    text = "Principado de Asturias",
+                    fontWeight = FontWeight.Bold,
+                    fontSize = 20.sp,
+                    modifier = Modifier.padding(5.dp)
+
+                )
 
                 Text(
-                    text = "Oviedo"
+                    text = "Oviedo",
+                    fontSize = 20.sp,
+                    modifier = Modifier.padding(5.dp)
                 )
             }
-    }
+        }
     }
 }
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
     MiAplicacionTheme {
         Tarjeta()
     }
-    }
+}
