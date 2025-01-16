@@ -159,9 +159,22 @@ fun CuadrosLayout(modifier: Modifier = Modifier) {
                     .background(
                         Color(0xFFD0BCFF)
                     )
-                    .padding(16.dp)
+                    .padding(16.dp),  //nota importante una coma al final de los modifier(para alinear es content aligment no padding)
+                contentAlignment = Alignment.Center
             ) {
+                Column {
+                    Text(
+                        text = "Text composable",
+                        fontWeight = FontWeight.Bold,
+                        modifier = modifier.padding(bottom = 16.dp)
+                    )
+                    Text(
+                        text = "cmas texto de como  funcona esto",
+                        textAlign = TextAlign.Justify,
+                        modifier = modifier
 
+                    )
+                }
             }
         }
         Row(
@@ -178,7 +191,19 @@ fun CuadrosLayout(modifier: Modifier = Modifier) {
                     )
                     .padding(16.dp)
             ) {
+                Column {
+                    Text(
+                        text = "Text composable",
+                        fontWeight = FontWeight.Bold,
+                        modifier = modifier.padding(bottom = 16.dp)
+                    )
+                    Text(
+                        text = "cmas texto de como  funcona esto",
+                        textAlign = TextAlign.Justify,
+                        modifier = modifier
 
+                    )
+                }
             }
             Box(
                 Modifier
@@ -189,14 +214,29 @@ fun CuadrosLayout(modifier: Modifier = Modifier) {
                     )
                     .padding(16.dp)
             ) {
-
+                //recordar añadir el padding
+                TextoCaja("tituloooo","asi es como  podemos declarar esta caja")
             }
         }
     }
 }
-
+//esta funcion servivia para optimizar el codigo en las cajas
+@Composable
 fun TextoCaja(titulo : String ,descripcion : String, modifier: Modifier= Modifier){
+    Column(horizontalAlignment = Alignment.CenterHorizontally) {
+        Text(
+            text = titulo,
+            fontWeight = FontWeight.Bold,
+            modifier = modifier.padding(bottom = 16.dp),
+            textAlign = TextAlign.Center
+        )
+        Text(
+            text = descripcion,
+            textAlign = TextAlign.Justify,
+            modifier = modifier
 
+        )
+    }
 }
 
 @Preview(showBackground = true, showSystemUi = true)
