@@ -22,7 +22,7 @@ import com.example.miaplicacion.ui.theme.MiAplicacionTheme
 fun Tarjeta(modifier: Modifier=Modifier){
     Card (Modifier.fillMaxWidth().padding(20.dp)) {
         Row {
-           Image(painter = painterResource(id = R.drawable.principado_de_asturias), contentDescription = "sisi")
+           Image(painter = painterResource(id = R.drawable.principado_de_asturias), contentDescription = "sisi")// la descripcion de a imagen es indispensable
             Column {
                     Text(
                         text = "Principado de Asturias"
