@@ -215,14 +215,15 @@ fun CuadrosLayout(modifier: Modifier = Modifier) {
                     .padding(16.dp)
             ) {
                 //recordar añadir el padding
-                TextoCaja("tituloooo","asi es como  podemos declarar esta caja")
+                TextoCaja("tituloooo", "asi es como  podemos declarar esta caja")
             }
         }
     }
 }
+
 //esta funcion servivia para optimizar el codigo en las cajas
 @Composable
-fun TextoCaja(titulo : String ,descripcion : String, modifier: Modifier= Modifier){
+fun TextoCaja(titulo: String, descripcion: String, modifier: Modifier = Modifier) {
     Column(horizontalAlignment = Alignment.CenterHorizontally) {
         Text(
             text = titulo,
@@ -238,7 +239,11 @@ fun TextoCaja(titulo : String ,descripcion : String, modifier: Modifier= Modifie
         )
     }
 }
+//notas pendientes àra mirar:lazy colum lazy row y lazy grid, tambien mirar card de jetpack compose
 
+//para solo almacenar datos se puede usar algo llamado data class (investigarlo) solo se utiliza para almecenar informacion
+
+//val es una constante y var es una variable que puede cambiar de valor
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
