@@ -32,6 +32,7 @@ import androidx.compose.ui.unit.sp
 import com.example.miaplicacion.componente.MisTarjetas
 import com.example.miaplicacion.componente.Tarjeta
 import com.example.miaplicacion.ui.theme.MiAplicacionTheme
+import com.example.miaplicacion.vista.MostrarComunides
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -40,8 +41,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             MiAplicacionTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    MisTarjetas(modifier = Modifier.padding(innerPadding)) //si no  le pasas modfier da error
+                    //MisTarjetas(modifier = Modifier.padding(innerPadding)) //si no  le pasas modfier da error
 
+                    MostrarComunides(Modifier)
                 }
             }
         }

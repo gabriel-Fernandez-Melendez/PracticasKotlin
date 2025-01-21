@@ -21,6 +21,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.miaplicacion.CuadrosLayout
+import com.example.miaplicacion.Data.Comunidad
 import com.example.miaplicacion.R
 import com.example.miaplicacion.ui.theme.MiAplicacionTheme
 
@@ -189,7 +190,36 @@ fun Tarjeta4(modifier: Modifier = Modifier) {
 }
 } }
 
+@Composable
+fun TarjetaEstandar(modifier: Modifier = Modifier,comu : Comunidad) {
+    ElevatedCard (
+        Modifier
+            .fillMaxWidth()
+            .padding(20.dp),
+        elevation = CardDefaults.cardElevation(5.dp),
+        shape = CircleShape
+    ){Row {
+        Image(
+            painter = painterResource(id = comu.bandera),
+            contentDescription = "bandera de "+ comu.nombre
+        )// la descripcion de a imagen es indispensable
+        Column {
+            Text(
+                text = comu.nombre,
+                fontWeight = FontWeight.Bold,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(5.dp)
 
+            )
+
+            Text(
+                text = comu.capital,
+                fontSize = 20.sp,
+                modifier = Modifier.padding(5.dp)
+            )
+        }
+    }
+    } }
 
 
 
@@ -202,8 +232,11 @@ fun MisTarjetas(modifier: Modifier = Modifier){
         Tarjeta2(Modifier)
         Tarjeta3(Modifier)
         Tarjeta4(Modifier)
+        var con =Comunidad("madrid","españa",R.drawable.madrid)
+        TarjetaEstandar(Modifier, con)
     }
 }
+//SI  LE DAMOS AL  LOGO DLE MOVIL AL LADO DE UNA PREVIEW POEMOS AÑADIR DIRECTAMENTE ESTE METODO  A EL EMULADOR
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview() {
