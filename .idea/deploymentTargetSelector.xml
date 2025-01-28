@@ -5,6 +5,7 @@
       <SelectionState runConfigName="app">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+<<<<<<< HEAD
       <SelectionState runConfigName="GreetingPreview2">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
@@ -17,6 +18,8 @@
       <SelectionState runConfigName="GreetingPreview2 (1)">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
+=======
+>>>>>>> 993dc5477a04a424f68f008d5865b11a2134cd73
     </selectionStates>
   </component>
 </project>
