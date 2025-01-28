@@ -241,6 +241,6 @@ fun MisTarjetas(modifier: Modifier = Modifier){
 @Composable
 fun GreetingPreview() {
     MiAplicacionTheme {
-        Tarjeta()
+        MisTarjetas()
     }
 }
