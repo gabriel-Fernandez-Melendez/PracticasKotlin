@@ -32,7 +32,9 @@ fun RadioButon(modifier: Modifier =Modifier){
         Text("efectivo o tarjeta", fontSize = 30.sp)
         Row(verticalAlignment = Alignment.CenterVertically) { RadioButton(selected = efectivo, onClick = {efectivo=!efectivo})
             Text(text = "efectivo") }
-
+        if(efectivo){
+            Text(text = "efectivo")
+        }
 
     }
 
