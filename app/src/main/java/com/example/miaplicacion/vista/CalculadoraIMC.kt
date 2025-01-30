@@ -36,9 +36,9 @@ fun Calculadora(modifier: Modifier=Modifier){
         Text(text ="Indice de Masa Corporal" ,fontSize = 30.sp)
         var peso by remember { mutableDoubleStateOf(0.0) }
         var altura by remember { mutableDoubleStateOf(0.0)} //el importe ocurre aqui  y no en el it de la linea de abajo
-        TextField(value = peso, onValueChange = {peso = it}, label = {"Introduce tu peso"})
+       // TextField(value = peso, onValueChange = {peso = it}, label = {"Introduce tu peso"})
         Spacer( modifier.size(30.dp))
-        TextField(value = "Introduce tu altura" , onValueChange = {altura = it}, label = {"Introduce tu peso"})
+       // TextField(value = "Introduce tu altura" , onValueChange = {altura = it}, label = {"Introduce tu peso"})
         Spacer( modifier.size(20.dp))
         Button(onClick = {PesoPorAltura(altura,peso)},) { Text(
             text = "Calcular",
