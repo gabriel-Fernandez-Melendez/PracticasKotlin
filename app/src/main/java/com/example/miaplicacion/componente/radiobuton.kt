@@ -48,9 +48,35 @@ fun RadioButon(modifier: Modifier =Modifier){ //lo que ha cambiado con este camb
 
 }
 
+@Composable
+fun RadioButonConfor(modifier: Modifier =Modifier){ //esta funcion ahora hace lo mismo que la anteriro pero con  un  for para la creacion de botones!
+    var efectivo by remember {  mutableStateOf(false) }
+    var variable by remember {  mutableStateOf("") }
+    Column( modifier
+        .fillMaxWidth().fillMaxHeight().size(60.dp), horizontalAlignment = Alignment.CenterHorizontally , verticalArrangement = Arrangement.Center){
+        Spacer(Modifier.size(30.dp))
+        Text("efectivo o tarjeta", fontSize = 30.sp)
+        for (result in listOf("efectivo","tarjeta" )){
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                RadioButton(selected = variable == result, onClick = {variable=result}) //forma difernete de ejecutar el bucle
+                Text(text = result) }
+
+
+        }
+        if(variable.equals("efectivo")){
+            Text(text = "efectivo")
+        }
+        if(variable.equals("tarjeta")){
+            Text(text = "tarjeta")
+        }
+
+    }
+
+}
+
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreviewradiobuttond() {
-    RadioButon(Modifier)
+    RadioButonConfor(Modifier)
 }
