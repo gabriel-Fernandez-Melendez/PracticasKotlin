@@ -4,7 +4,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.absolutePadding
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -15,7 +14,6 @@ import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -36,23 +34,24 @@ fun Calculadora(modifier: Modifier=Modifier){
         Text(text ="Indice de Masa Corporal" ,fontSize = 30.sp)
         var peso by remember { mutableDoubleStateOf(0.0) }
         var altura by remember { mutableDoubleStateOf(0.0)} //el importe ocurre aqui  y no en el it de la linea de abajo
-       // TextField(value = peso, onValueChange = {peso = it}, label = {"Introduce tu peso"})
+        TextField(value =peso.toString(), onValueChange = {peso = it.toDouble()}, label = {"Introduce tu peso"})
         Spacer( modifier.size(30.dp))
-       // TextField(value = "Introduce tu altura" , onValueChange = {altura = it}, label = {"Introduce tu peso"})
+        TextField(value = altura.toString(), onValueChange = {altura = it.toDouble()}, label = {"Introduce tu peso"})
         Spacer( modifier.size(20.dp))
-        Button(onClick = {PesoPorAltura(altura,peso)},) { Text(
+        var rel:String =""
+        Button(onClick = {rel=PesoPorAltura(altura,peso)},) { Text(
             text = "Calcular",
             fontSize = 10.sp
         )
         }
         Spacer( modifier.size(20.dp))
-        Text(text = "se ve", fontSize = 30.sp)
+        Text(text = "su IMC esta en : $rel", fontSize = 10.sp)
     }
 }
 
-fun PesoPorAltura(altura:Double,peso:Double){
+fun PesoPorAltura(altura:Double,peso:Double):String {
     var imc =peso*altura*altura
-    when(peso){
+     return when(peso){
         in 1.0..16.0 -> "Delgadez severa"
         in 16.0..17.0-> "Delgadez moderada"
         in 17.0..18.5-> "Delgadez leve"
@@ -61,7 +60,8 @@ fun PesoPorAltura(altura:Double,peso:Double){
         in 30.0..35.0-> "Delgadez leve"
         in 35.0..40.0-> "Delgadez leve"
         40.0-> "Obecidad morbida"
-    }
+         else -> {" "}
+     }
 
 }
 @Preview(showBackground = true, showSystemUi = true)

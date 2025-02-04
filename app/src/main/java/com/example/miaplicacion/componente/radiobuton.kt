@@ -24,16 +24,24 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
 @Composable
-fun RadioButon(modifier: Modifier =Modifier){
+fun RadioButon(modifier: Modifier =Modifier){ //lo que ha cambiado con este cambio es que la forma de comprobar el contenido del programa es diferente
     var efectivo by remember {  mutableStateOf(false) }
+    var variable by remember {  mutableStateOf("") }
     Column( modifier
         .fillMaxWidth().fillMaxHeight().size(60.dp), horizontalAlignment = Alignment.CenterHorizontally , verticalArrangement = Arrangement.Center){
         Spacer(Modifier.size(30.dp))
         Text("efectivo o tarjeta", fontSize = 30.sp)
-        Row(verticalAlignment = Alignment.CenterVertically) { RadioButton(selected = efectivo, onClick = {efectivo=!efectivo})
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            RadioButton(selected = variable == "efectivo", onClick = {variable="efectivo"}) //forma difernete de ejecutar el bucle
             Text(text = "efectivo") }
-        if(efectivo){
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            RadioButton(selected = variable =="tarjeta", onClick = {variable="tarjeta"})
+            Text(text = "tarjeta") }
+        if(variable.equals("efectivo")){
             Text(text = "efectivo")
+        }
+        if(variable.equals("tarjeta")){
+            Text(text = "tarjeta")
         }
 
     }
