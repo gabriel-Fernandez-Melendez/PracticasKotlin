@@ -9,11 +9,13 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Button
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableDoubleStateOf
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
@@ -32,26 +34,48 @@ fun Calculadora(modifier: Modifier=Modifier){
         }
         Spacer( modifier.size(12.dp)) //esto te permite alejar componentes entre ellos
         Text(text ="Indice de Masa Corporal" ,fontSize = 30.sp)
-        var peso by remember { mutableDoubleStateOf(0.0) }
-        var altura by remember { mutableDoubleStateOf(0.0)} //el importe ocurre aqui  y no en el it de la linea de abajo
-        TextField(value =peso.toString(), onValueChange = {peso = it.toDouble()}, label = {"Introduce tu peso"})
+        var peso by remember { mutableStateOf("") }
+        var altura by remember { mutableStateOf("") }
+        var rel by remember { mutableStateOf("") }//el importe ocurre aqui  y no en el it de la linea de abajo
+        var variable by remember {  mutableStateOf("") }
+        var perimetro by remember {  mutableStateOf("") }
+        var perimetro_String by remember {  mutableStateOf("") }
+
+        TextField(value =peso, onValueChange = {peso = it}, label = { Text("Introduce tu peso")})
         Spacer( modifier.size(30.dp))
-        TextField(value = altura.toString(), onValueChange = {altura = it.toDouble()}, label = {"Introduce tu peso"})
+        TextField(value = altura, onValueChange = {altura = it}, label =  { Text("Introduce tu altura")})
         Spacer( modifier.size(20.dp))
-        var rel:String =""
-        Button(onClick = {rel=PesoPorAltura(altura,peso)},) { Text(
-            text = "Calcular",
-            fontSize = 10.sp
-        )
-        }
+
         Spacer( modifier.size(20.dp))
         Text(text = "su IMC esta en : $rel", fontSize = 10.sp)
+
+        Spacer(modifier.size(30.dp))
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            for (result in listOf("Hombre","Mujer")){
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    RadioButton(selected = variable == result, onClick = {variable=result}) //forma difernete de ejecutar el bucle
+                    Text(text = result) }
+
+
+            }
+        }
+        Spacer(modifier.size(20.dp))
+        TextField(value =perimetro, onValueChange = {perimetro = it}, label = { Text("Introduce tu perimetro")})
+        Spacer( modifier.size(20.dp))
+        Text(text = "su Riesgo esta en : $perimetro_String", fontSize = 10.sp)
+        Spacer(modifier.size(20.dp))
+        Button(onClick = {rel=PesoPorAltura(altura.toDouble(),peso.toDouble());perimetro_String=PesoPorAlturaPerimetro(perimetro.toInt(),variable) },) {
+            Text(
+                text = "Calcular",
+                fontSize = 10.sp
+            )
+        }
     }
 }
 
 fun PesoPorAltura(altura:Double,peso:Double):String {
-    var imc =peso*altura*altura
-     return when(peso){
+    var imc =peso/(altura*altura)
+     return when(imc){
         in 1.0..16.0 -> "Delgadez severa"
         in 16.0..17.0-> "Delgadez moderada"
         in 17.0..18.5-> "Delgadez leve"
@@ -63,6 +87,25 @@ fun PesoPorAltura(altura:Double,peso:Double):String {
          else -> {" "}
      }
 
+}
+fun PesoPorAlturaPerimetro(perimetro:Int,genero:String):String {
+    var riesgo:String ="prueba"
+    when(genero){
+        "Mujer"->  when(perimetro){
+            in 0..80 -> riesgo="Normal "
+            in 81..88-> riesgo="Riesgo alto "
+            in 88..1200-> riesgo="Riesgo muy alto"
+            else -> {" "}
+        }
+        "Hombre"->  when(perimetro){
+        in 0..94 -> riesgo="Normal "
+        in 95..102-> riesgo="Riesgo alto "
+        in 88..1200-> riesgo="Riesgo muy alto"
+        else -> {" "}
+    }
+
+    }
+    return riesgo
 }
 @Preview(showBackground = true, showSystemUi = true)
 @Composable

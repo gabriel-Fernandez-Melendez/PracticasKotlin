@@ -31,7 +31,8 @@ import com.example.miaplicacion.R
 import com.example.miaplicacion.ui.theme.MiAplicacionTheme
 import kotlin.random.Random
 
-/*@Composable
+/**
+@Composable
 fun PantallaDeLimonada(modifier: Modifier = Modifier) { // el centrado del texto se hace dento de la propia collum
     var veces: MutableIntState = rememberSaveable() { mutableIntStateOf(Random.nextInt(1, 4)) }
     Column(
@@ -114,12 +115,12 @@ fun PantallaDeLimonada(modifier: Modifier = Modifier) { // el centrado del texto
             }
         }
     }
-}*/
-
+}
+*/
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview2r() {
-   // Limonada(Modifier)
+    PantallaDeLimonada(Modifier)
     }
 
 
