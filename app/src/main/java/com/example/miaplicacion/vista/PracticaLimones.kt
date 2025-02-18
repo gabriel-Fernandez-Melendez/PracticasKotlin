@@ -125,7 +125,7 @@ fun PantallaDeLimonada(modifier: Modifier = Modifier) { // el centrado del texto
     }
 }
 */
->>>>>>> b2af6c4efdee4ff527caa357f57e57bf94222e4d
+
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun GreetingPreview2r() {

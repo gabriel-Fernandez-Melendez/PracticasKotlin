@@ -2,19 +2,13 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="GreetingPreviewDialogos">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
       <SelectionState runConfigName="GreetingPreviewPractica">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="GreetingPreview2r">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="GreetingPreviewPracticaCalculadora">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="GreetingPreviewradiobuttond">
+      <SelectionState runConfigName="GreetingPreviewLogin_Instagram">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
