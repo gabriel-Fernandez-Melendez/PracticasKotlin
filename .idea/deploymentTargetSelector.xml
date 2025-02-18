@@ -2,10 +2,10 @@
 <project version="4">
   <component name="deploymentTargetSelector">
     <selectionStates>
-      <SelectionState runConfigName="GreetingPreviewPractica">
+      <SelectionState runConfigName="GreetingPreviewPracticaCalculadora">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="GreetingPreviewPracticaCalculadora">
+      <SelectionState runConfigName="GreetingPreviewMenu">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
       <SelectionState runConfigName="GreetingPreviewLogin_Instagram">
