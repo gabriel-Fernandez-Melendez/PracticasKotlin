@@ -124,7 +124,6 @@ fun Login_Instagram(modifier: Modifier = Modifier) {
                 modifier = Modifier.size(40.dp),
                 contentDescription = "F",
                 painter = painterResource(id = com.example.miaplicacion.R.drawable.facebook_logo),
-
             )
         }
     }
