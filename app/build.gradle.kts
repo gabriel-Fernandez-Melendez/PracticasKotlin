@@ -40,10 +40,10 @@ android {
 }
 
 dependencies {
-
+    //este import es de cambio de pantallas
         val nav_version = "2.8.7"
         implementation("androidx.navigation:navigation-compose:$nav_version")
-    //estos son los import relacionados con cambiar de pantallas
+    //estos import son los relacionados a el modelo Model view viewmodel (similar a modelo vista controlador)
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.8.7")
     implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.7")
 
