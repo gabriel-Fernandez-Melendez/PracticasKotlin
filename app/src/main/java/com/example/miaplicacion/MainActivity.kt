@@ -29,6 +29,7 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.miaplicacion.Navegacion.HostNav.Navegacion
 import com.example.miaplicacion.componente.MisTarjetas
 import com.example.miaplicacion.componente.Tarjeta
 import com.example.miaplicacion.ui.theme.MiAplicacionTheme
@@ -40,13 +41,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            MiAplicacionTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    //MisTarjetas(modifier = Modifier.padding(innerPadding)) //si no  le pasas modfier da error
-
-                    Pulsador()
-                }
-            }
+            Navegacion()
         }
     }
 }
