@@ -37,6 +37,7 @@ import com.example.miaplicacion.componente.MisTarjetas
 import com.example.miaplicacion.componente.Tarjeta
 import com.example.miaplicacion.ui.theme.MiAplicacionTheme
 import com.example.miaplicacion.vista.MostrarComunides
+import com.example.miaplicacion.vista.PantallaDeLimonada
 import com.example.miaplicacion.vista.Pulsador
 
 class MainActivity : ComponentActivity() {
@@ -46,7 +47,8 @@ class MainActivity : ComponentActivity() {
         val viewmodel :ContadorViewModel by viewModels()
         setContent {
            // Navegacion() //MIRAR BIEN ,EN CASO DE DUDAS CON LA NAVEGACION ENTRE PANTALLAS
-            Contador(viewmodel)
+            //Contador(viewmodel)
+            PantallaDeLimonada(Modifier)
         }
     }
 }
