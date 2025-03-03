@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -29,24 +30,25 @@ import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.example.miaplicacion.ModeloMVVM.view.Contador
+import com.example.miaplicacion.ModeloMVVM.viewmodel.ContadorViewModel
+import com.example.miaplicacion.Navegacion.HostNav.Navegacion
 import com.example.miaplicacion.componente.MisTarjetas
 import com.example.miaplicacion.componente.Tarjeta
 import com.example.miaplicacion.ui.theme.MiAplicacionTheme
 import com.example.miaplicacion.vista.MostrarComunides
+import com.example.miaplicacion.vista.PantallaDeLimonada
 import com.example.miaplicacion.vista.Pulsador
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
+        val viewmodel :ContadorViewModel by viewModels()
         setContent {
-            MiAplicacionTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    //MisTarjetas(modifier = Modifier.padding(innerPadding)) //si no  le pasas modfier da error
-
-                    Pulsador()
-                }
-            }
+           // Navegacion() //MIRAR BIEN ,EN CASO DE DUDAS CON LA NAVEGACION ENTRE PANTALLAS
+            //Contador(viewmodel)
+            PantallaDeLimonada(Modifier)
         }
     }
 }

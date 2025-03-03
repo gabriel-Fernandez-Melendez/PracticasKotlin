@@ -40,7 +40,7 @@ fun PantallaDeLimonada(modifier: Modifier = Modifier) { // el centrado del texto
 
         )
         when(veces.value){ //para poder pasar como parametro int el mutableintState hace falta un .value
-            1-> Column(modifier.fillMaxWidth().fillMaxHeight(),
+            1-> Column(modifier.fillMaxWidth().fillMaxHeight(), //deberia poner maxzize si quiero cubrir toda la pantalla
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
                 Button(onClick = {veces.value++}) {
                     Image(painter = painterResource(id = R.drawable.lemon_tree), contentDescription = "rt")
@@ -48,7 +48,7 @@ fun PantallaDeLimonada(modifier: Modifier = Modifier) { // el centrado del texto
                 }
                 Text(text = "click en el arbol para cojer el limon")
             }
-            2->Column(modifier.fillMaxWidth().fillMaxHeight(),
+            2->Column(modifier.fillMaxWidth().fillMaxHeight(), //era aqui el  numero aleatorio
                 horizontalAlignment = Alignment.CenterHorizontally, verticalArrangement = Arrangement.Center){
                 Button(onClick = {veces.value++}) {
                     Image(painter = painterResource(id = R.drawable.lemon_squeeze), contentDescription = "rt")
